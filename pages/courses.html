@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程管理 - CityU Teaching Assistant</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/courses.css">
+</head>
+<body class="cityu-teaching-app">
+    <!-- 顶部导航栏 -->
+    <header class="app-header">
+        <div class="container-max">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="../assets/cityu-logo.svg" alt="CityU Logo" class="logo">
+                    <span class="app-name">教学辅助系统</span>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="../index.html" class="nav-link" data-translate="dashboard">仪表板</a></li>
+                        <li><a href="courses.html" class="nav-link active" data-translate="courseDesign">课程管理</a></li>
+                        <li><a href="students.html" class="nav-link" data-translate="studentManagement">学生管理</a></li>
+                        <li><a href="assignments.html" class="nav-link" data-translate="assignmentGrading">作业批改</a></li>
+                        <li><a href="ai-assistant.html" class="nav-link" data-translate="aiAssistant">智能答疑</a></li>
+                    </ul>
+                </nav>
+
+                <div class="user-section">
+                    <div class="language-switcher">
+                        <button class="lang-btn" data-lang="zh-TW">繁</button>
+                        <button class="lang-btn active" data-lang="zh-CN">简</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                    <div class="user-avatar" id="user-avatar-btn">
+                        <img src="../assets/default-avatar.png" alt="User Avatar">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <div class="container-max">
+            <div class="page-header">
+                <h1>课程管理</h1>
+                <button class="btn-primary" onclick="showCreateCourseModal()">创建新课程</button>
+            </div>
+
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>计算机科学导论</h3>
+                        <span class="course-code">CS1101</span>
+                    </div>
+                    <div class="course-info">
+                        <div class="info-item">
+                            <span class="label">学生数:</span>
+                            <span class="value">45</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">进行中作业:</span>
+                            <span class="value">3</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">状态:</span>
+                            <span class="status active">进行中</span>
+                        </div>
+                    </div>
+                    <div class="course-actions">
+                        <button class="btn-secondary">查看详情</button>
+                        <button class="btn-outline">编辑</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>数据结构与算法</h3>
+                        <span class="course-code">CS2102</span>
+                    </div>
+                    <div class="course-info">
+                        <div class="info-item">
+                            <span class="label">学生数:</span>
+                            <span class="value">38</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">进行中作业:</span>
+                            <span class="value">2</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">状态:</span>
+                            <span class="status active">进行中</span>
+                        </div>
+                    </div>
+                    <div class="course-actions">
+                        <button class="btn-secondary">查看详情</button>
+                        <button class="btn-outline">编辑</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>人工智能基础</h3>
+                        <span class="course-code">CS3205</span>
+                    </div>
+                    <div class="course-info">
+                        <div class="info-item">
+                            <span class="label">学生数:</span>
+                            <span class="value">28</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">进行中作业:</span>
+                            <span class="value">1</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">状态:</span>
+                            <span class="status completed">已结束</span>
+                        </div>
+                    </div>
+                    <div class="course-actions">
+                        <button class="btn-secondary">查看详情</button>
+                        <button class="btn-outline">编辑</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 创建课程模态框 -->
+    <div class="modal" id="createCourseModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>创建新课程</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="course-form">
+                    <div class="form-group">
+                        <label>课程名称</label>
+                        <input type="text" placeholder="输入课程名称" required>
+                    </div>
+                    <div class="form-group">
+                        <label>课程代码</label>
+                        <input type="text" placeholder="输入课程代码" required>
+                    </div>
+                    <div class="form-group">
+                        <label>学期</label>
+                        <select required>
+                            <option value="">选择学期</option>
+                            <option value="2024-1">2024-2025 第一学期</option>
+                            <option value="2024-2">2024-2025 第二学期</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>课程描述</label>
+                        <textarea placeholder="输入课程描述" rows="3"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-outline" onclick="hideCreateCourseModal()">取消</button>
+                        <button type="submit" class="btn-primary">创建课程</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/language-common.js"></script>
+    <script src="../js/courses.js"></script>
+</body>
+</html>

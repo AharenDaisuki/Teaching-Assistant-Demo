@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - CityU Teaching Assistant</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-header">
+            <img src="assets/cityu-logo.svg" alt="CityU Logo" class="auth-logo">
+            <h1>CityU Teaching Assistant</h1>
+            <p>香港城市大学教学辅助系统</p>
+        </div>
+
+        <div class="language-switcher auth-language">
+            <button class="lang-btn active" data-lang="zh-CN">简</button>
+            <button class="lang-btn" data-lang="zh-TW">繁</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+
+        <div class="auth-tabs">
+            <button class="tab-btn active" data-tab="login">登录</button>
+            <button class="tab-btn" data-tab="register">注册</button>
+        </div>
+
+        <!-- 登录表单 -->
+        <form class="auth-form active" id="login-form">
+            <div class="form-group">
+                <label for="login-email" data-translate="email">邮箱地址</label>
+                <input type="email" id="login-email" required placeholder="请输入邮箱地址" data-translate-placeholder="emailPlaceholder">
+            </div>
+            <div class="form-group">
+                <label for="login-password" data-translate="password">密码</label>
+                <input type="password" id="login-password" required placeholder="请输入密码" data-translate-placeholder="passwordPlaceholder">
+            </div>
+            <div class="form-options">
+                <label class="checkbox">
+                    <input type="checkbox" id="remember-me">
+                    <span data-translate="rememberMe">记住我</span>
+                </label>
+                <a href="#" class="forgot-password" data-translate="forgotPassword">忘记密码？</a>
+            </div>
+            <button type="submit" class="btn-primary auth-btn" data-translate="login">登录</button>
+        </form>
+
+        <!-- 注册表单 -->
+        <form class="auth-form" id="register-form">
+            <div class="form-group">
+                <label for="register-name" data-translate="name">姓名</label>
+                <input type="text" id="register-name" required placeholder="请输入姓名" data-translate-placeholder="namePlaceholder">
+            </div>
+            <div class="form-group">
+                <label for="register-email" data-translate="email">邮箱地址</label>
+                <input type="email" id="register-email" required placeholder="请输入邮箱地址" data-translate-placeholder="emailPlaceholder">
+            </div>
+            <div class="form-group">
+                <label for="register-password" data-translate="password">密码</label>
+                <input type="password" id="register-password" required placeholder="请输入密码（至少8位）" data-translate-placeholder="passwordPlaceholder">
+            </div>
+            <div class="form-group">
+                <label for="register-confirm" data-translate="confirmPassword">确认密码</label>
+                <input type="password" id="register-confirm" required placeholder="请再次输入密码" data-translate-placeholder="confirmPasswordPlaceholder">
+            </div>
+            <div class="form-group">
+                <label for="register-department" data-translate="department">院系</label>
+                <select id="register-department" required>
+                    <option value="" data-translate="selectDepartment">请选择院系</option>
+                    <option value="cs" data-translate="csDept">计算机科学系</option>
+                    <option value="ee" data-translate="eeDept">电子工程系</option>
+                    <option value="math" data-translate="mathDept">数学系</option>
+                    <option value="physics" data-translate="physicsDept">物理系</option>
+                    <option value="business" data-translate="businessDept">商学院</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="register-title" data-translate="title">职称</label>
+                <select id="register-title" required>
+                    <option value="" data-translate="selectTitle">请选择职称</option>
+                    <option value="Professor" data-translate="professor">教授</option>
+                    <option value="Associate Professor" data-translate="associateProfessor">副教授</option>
+                    <option value="Assistant Professor" data-translate="assistantProfessor">助理教授</option>
+                    <option value="Lecturer" data-translate="lecturer">讲师</option>
+                </select>
+            </div>
+            <div class="form-options">
+                <label class="checkbox">
+                    <input type="checkbox" id="agree-terms" required>
+                    <span data-translate="agreeTerms">我同意服务条款和隐私政策</span>
+                </label>
+            </div>
+            <button type="submit" class="btn-primary auth-btn" data-translate="register">注册</button>
+        </form>
+
+        <div class="auth-footer">
+            <p>© 2025 香港城市大学</p>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/auth-language.js"></script>
+</body>
+</html>

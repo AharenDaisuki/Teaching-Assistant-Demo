@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能答疑 - CityU Teaching Assistant</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/ai-assistant.css">
+</head>
+<body class="cityu-teaching-app">
+    <header class="app-header">
+        <div class="container-max">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="../assets/cityu-logo.svg" alt="CityU Logo" class="logo">
+                    <span class="app-name">教学辅助系统</span>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="../index.html" class="nav-link" data-translate="dashboard">仪表板</a></li>
+                        <li><a href="courses.html" class="nav-link" data-translate="courseDesign">课程管理</a></li>
+                        <li><a href="students.html" class="nav-link" data-translate="studentManagement">学生管理</a></li>
+                        <li><a href="assignments.html" class="nav-link" data-translate="assignmentGrading">作业批改</a></li>
+                        <li><a href="ai-assistant.html" class="nav-link active" data-translate="aiAssistant">智能答疑</a></li>
+                    </ul>
+                </nav>
+
+                <div class="user-section">
+                    <div class="language-switcher">
+                        <button class="lang-btn" data-lang="zh-TW">繁</button>
+                        <button class="lang-btn active" data-lang="zh-CN">简</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                    <div class="user-avatar" id="user-avatar-btn">
+                        <img src="../assets/default-avatar.png" alt="User Avatar">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <div class="container-max">
+            <div class="page-header">
+                <h1>智能答疑助手</h1>
+                <div class="header-actions">
+                    <select class="course-select">
+                        <option value="">所有课程</option>
+                        <option value="cs1101">计算机科学导论</option>
+                        <option value="cs2102">数据结构与算法</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="ai-assistant-container">
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <h3>AI 教学助手</h3>
+                        <span class="ai-status">在线</span>
+                    </div>
+                    
+                    <div class="chat-messages">
+                        <div class="message ai-message">
+                            <div class="message-avatar">AI</div>
+                            <div class="message-content">
+                                <p>您好，张教授！我是您的智能教学助手。我可以帮助您：</p>
+                                <ul>
+                                    <li>回答学生常见问题</li>
+                                    <li>生成教学材料建议</li>
+                                    <li>提供作业批改建议</li>
+                                    <li>分析学生学习情况</li>
+                                </ul>
+                                <p>请问有什么可以帮您的？</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input">
+                        <textarea placeholder="输入您的问题..." rows="2"></textarea>
+                        <button class="send-btn">发送</button>
+                    </div>
+                </div>
+
+                <div class="quick-questions">
+                    <h4>常见问题模板</h4>
+                    <div class="question-templates">
+                        <button class="template-btn" data-question="如何解释数据结构中的链表概念？">
+                            💡 解释链表概念
+                        </button>
+                        <button class="template-btn" data-question="请为计算机科学导论设计一个课堂练习">
+                            📝 设计课堂练习
+                        </button>
+                        <button class="template-btn" data-question="如何评估学生的编程作业？">
+                            📊 作业评估建议
+                        </button>
+                        <button class="template-btn" data-question="生成一个关于人工智能的测验题目">
+                            ❓ 生成测验题目
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/language-common.js"></script>
+    <script src="../js/ai-assistant.js"></script>
+</body>
+</html>

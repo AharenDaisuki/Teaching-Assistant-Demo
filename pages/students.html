@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生管理 - CityU Teaching Assistant</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/students.css">
+</head>
+<body class="cityu-teaching-app">
+    <header class="app-header">
+        <div class="container-max">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="../assets/cityu-logo.svg" alt="CityU Logo" class="logo">
+                    <span class="app-name">教学辅助系统</span>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link" data-translate="dashboard">仪表板</a></li>
+                        <li><a href="courses.html" class="nav-link" data-translate="courseDesign">课程管理</a></li>
+                        <li><a href="students.html" class="nav-link" data-translate="studentManagement">学生管理</a></li>
+                        <li><a href="assignments.html" class="nav-link" data-translate="assignmentGrading">作业批改</a></li>
+                        <li><a href="ai-assistant.html" class="nav-link" data-translate="aiAssistant">智能答疑</a></li>
+                    </ul>
+                </nav>
+
+                <div class="user-section">
+                    <div class="language-switcher">
+                        <button class="lang-btn" data-lang="zh-TW">繁</button>
+                        <button class="lang-btn active" data-lang="zh-CN">简</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                    <div class="user-avatar" id="user-avatar-btn">
+                        <img src="../assets/default-avatar.png" alt="User Avatar">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <div class="container-max">
+            <div class="page-header">
+                <h1>学生管理</h1>
+                <div class="header-actions">
+                    <select class="course-filter">
+                        <option value="">所有课程</option>
+                        <option value="cs1101">计算机科学导论</option>
+                        <option value="cs2102">数据结构与算法</option>
+                    </select>
+                    <button class="btn-primary" onclick="importStudents()">导入学生</button>
+                </div>
+            </div>
+
+            <div class="students-table-container">
+                <table class="students-table">
+                    <thead>
+                        <tr>
+                            <th>学生ID</th>
+                            <th>姓名</th>
+                            <th>课程</th>
+                            <th>邮箱</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12345678</td>
+                            <td>李明</td>
+                            <td>计算机科学导论</td>
+                            <td>liming@student.cityu.edu.hk</td>
+                            <td><span class="status active">活跃</span></td>
+                            <td>
+                                <button class="btn-sm btn-secondary">详情</button>
+                                <button class="btn-sm btn-outline">消息</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>12345679</td>
+                            <td>王小红</td>
+                            <td>数据结构与算法</td>
+                            <td>wangxh@student.cityu.edu.hk</td>
+                            <td><span class="status active">活跃</span></td>
+                            <td>
+                                <button class="btn-sm btn-secondary">详情</button>
+                                <button class="btn-sm btn-outline">消息</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>12345680</td>
+                            <td>陈大文</td>
+                            <td>计算机科学导论</td>
+                            <td>chendw@student.cityu.edu.hk</td>
+                            <td><span class="status inactive">未激活</span></td>
+                            <td>
+                                <button class="btn-sm btn-secondary">详情</button>
+                                <button class="btn-sm btn-outline">消息</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- 导入学生模态框 -->
+    <div class="modal" id="importStudentsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>导入学生</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="import-form">
+                    <div class="form-group">
+                        <label>选择课程</label>
+                        <select required>
+                            <option value="">选择课程</option>
+                            <option value="cs1101">计算机科学导论</option>
+                            <option value="cs2102">数据结构与算法</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>上传学生名单</label>
+                        <input type="file" accept=".csv,.xlsx,.xls" required>
+                        <small>支持CSV或Excel格式，包含学号、姓名、邮箱等信息</small>
+                    </div>
+                    <div class="form-group">
+                        <label>导入选项</label>
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" checked>
+                                发送欢迎邮件
+                            </label>
+                            <label>
+                                <input type="checkbox" checked>
+                                自动创建学生账号
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-outline" onclick="hideImportStudentsModal()">取消</button>
+                        <button type="submit" class="btn-primary">开始导入</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/language-common.js"></script>
+    <script src="../js/students.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业批改 - CityU Teaching Assistant</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/assignments.css">
+</head>
+<body class="cityu-teaching-app">
+    <header class="app-header">
+        <div class="container-max">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="../assets/cityu-logo.svg" alt="CityU Logo" class="logo">
+                    <span class="app-name">教学辅助系统</span>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="../index.html" class="nav-link" data-translate="dashboard">仪表板</a></li>
+                        <li><a href="courses.html" class="nav-link" data-translate="courseDesign">课程管理</a></li>
+                        <li><a href="students.html" class="nav-link" data-translate="studentManagement">学生管理</a></li>
+                        <li><a href="assignments.html" class="nav-link active" data-translate="assignmentGrading">作业批改</a></li>
+                        <li><a href="ai-assistant.html" class="nav-link" data-translate="aiAssistant">智能答疑</a></li>
+                    </ul>
+                </nav>
+
+                <div class="user-section">
+                    <div class="language-switcher">
+                        <button class="lang-btn" data-lang="zh-TW">繁</button>
+                        <button class="lang-btn active" data-lang="zh-CN">简</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                    <div class="user-avatar" id="user-avatar-btn">
+                        <img src="../assets/default-avatar.png" alt="User Avatar">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <div class="container-max">
+            <div class="page-header">
+                <h1>作业批改</h1>
+                <div class="header-actions">
+                    <select class="assignment-filter">
+                        <option value="all">所有作业</option>
+                        <option value="pending">待批改</option>
+                        <option value="graded">已批改</option>
+                    </select>
+                    <button class="btn-primary" onclick="createAssignment()">创建作业</button>
+                </div>
+            </div>
+
+            <div class="assignments-grid">
+                <div class="assignment-card">
+                    <div class="assignment-header">
+                        <h3>数据结构作业 #1</h3>
+                        <span class="due-date">截止: 2024-03-15</span>
+                    </div>
+                    <div class="assignment-info">
+                        <div class="info-item">
+                            <span class="label">课程:</span>
+                            <span class="value">数据结构与算法</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">提交数:</span>
+                            <span class="value">35/38</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">批改进度:</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 60%"></div>
+                            </div>
+                            <span class="progress-text">60%</span>
+                        </div>
+                    </div>
+                    <div class="assignment-actions">
+                        <button class="btn-primary">继续批改</button>
+                        <button class="btn-outline">查看详情</button>
+                    </div>
+                </div>
+
+                <div class="assignment-card">
+                    <div class="assignment-header">
+                        <h3>计算机科学导论期末项目</h3>
+                        <span class="due-date">截止: 2024-04-20</span>
+                    </div>
+                    <div class="assignment-info">
+                        <div class="info-item">
+                            <span class="label">课程:</span>
+                            <span class="value">计算机科学导论</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">提交数:</span>
+                            <span class="value">42/45</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">批改进度:</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 20%"></div>
+                            </div>
+                            <span class="progress-text">20%</span>
+                        </div>
+                    </div>
+                    <div class="assignment-actions">
+                        <button class="btn-primary">开始批改</button>
+                        <button class="btn-outline">查看详情</button>
+                    </div>
+                </div>
+
+                <div class="assignment-card">
+                    <div class="assignment-header">
+                        <h3>人工智能期中测验</h3>
+                        <span class="due-date">截止: 2024-03-10</span>
+                    </div>
+                    <div class="assignment-info">
+                        <div class="info-item">
+                            <span class="label">课程:</span>
+                            <span class="value">人工智能基础</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">提交数:</span>
+                            <span class="value">28/28</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">批改进度:</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 100%"></div>
+                            </div>
+                            <span class="progress-text">100%</span>
+                        </div>
+                    </div>
+                    <div class="assignment-actions">
+                        <button class="btn-primary">查看成绩</button>
+                        <button class="btn-outline">导出成绩</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 创建作业模态框 -->
+    <div class="modal" id="createAssignmentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>创建新作业</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="assignment-form">
+                    <div class="form-group">
+                        <label>作业标题</label>
+                        <input type="text" placeholder="输入作业标题" required>
+                    </div>
+                    <div class="form-group">
+                        <label>选择课程</label>
+                        <select required>
+                            <option value="">选择课程</option>
+                            <option value="cs1101">计算机科学导论</option>
+                            <option value="cs2102">数据结构与算法</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>截止日期</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>总分</label>
+                        <input type="number" placeholder="100" min="1" max="1000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>作业描述</label>
+                        <textarea placeholder="输入作业要求和说明" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>附件</label>
+                        <input type="file" multiple>
+                        <small>可上传作业要求文档、模板文件等</small>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-outline" onclick="hideCreateAssignmentModal()">取消</button>
+                        <button type="submit" class="btn-primary">创建作业</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/language-common.js"></script>
+    <script src="../js/assignments.js"></script>
+</body>
+</html>

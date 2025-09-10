@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityU Teaching Assistant - 香港城市大学教学辅助系统</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="cityu-teaching-app">
+    <!-- 顶部导航栏 -->
+    <header class="app-header">
+        <div class="container-max">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="assets/cityu-logo.svg" alt="CityU Logo" class="logo">
+                    <span class="app-name">教学辅助系统</span>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link active" data-translate="dashboard">仪表板</a></li>
+                        <li><a href="pages/courses.html" class="nav-link" data-translate="courseDesign">课程管理</a></li>
+                        <li><a href="pages/students.html" class="nav-link" data-translate="studentManagement">学生管理</a></li>
+                        <li><a href="pages/assignments.html" class="nav-link" data-translate="assignmentGrading">作业批改</a></li>
+                        <li><a href="pages/ai-assistant.html" class="nav-link" data-translate="aiAssistant">智能答疑</a></li>
+                    </ul>
+                </nav>
+
+                <div class="user-section">
+                    <div class="language-switcher">
+                        <button class="lang-btn" data-lang="zh-TW">繁</button>
+                        <button class="lang-btn active" data-lang="zh-CN">简</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                    <div class="user-avatar" id="user-avatar-btn">
+                        <img src="assets/default-avatar.png" alt="User Avatar">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="app-main">
+        <div class="container-max">
+            <!-- 欢迎横幅 -->
+            <section class="welcome-banner">
+                <div class="banner-content">
+                    <h1 class="banner-title welcome-message"></h1>
+                    <p class="banner-subtitle">今日有3个待批改作业和2条学生提问</p>
+                    <div class="banner-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">进行中课程</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">128</span>
+                            <span class="stat-label">总学生数</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">87%</span>
+                            <span class="stat-label">完成率</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 快速操作区 -->
+            <section class="quick-actions">
+                <h2 class="section-title">快速操作</h2>
+                <div class="action-grid">
+                    <a href="pages/assignments.html" class="action-card">
+                        <div class="action-icon">📝</div>
+                        <h3>创建作业</h3>
+                        <p>发布新的课程作业</p>
+                    </a>
+                    <a href="pages/students.html" class="action-card">
+                        <div class="action-icon">👥</div>
+                        <h3>学生分组</h3>
+                        <p>管理学生小组</p>
+                    </a>
+                    <a href="pages/courses.html" class="action-card">
+                        <div class="action-icon">📊</div>
+                        <h3>成绩统计</h3>
+                        <p>查看成绩分布</p>
+                    </a>
+                    <a href="pages/ai-assistant.html" class="action-card">
+                        <div class="action-icon">🤖</div>
+                        <h3>AI答疑</h3>
+                        <p>智能回答学生问题</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- 最近活动 -->
+            <section class="recent-activity">
+                <h2 class="section-title">最近活动</h2>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">📄</div>
+                        <div class="activity-content">
+                            <h4>新作业提交</h4>
+                            <p>学生李明提交了"计算机科学导论"作业</p>
+                            <span class="activity-time">2小时前</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">❓</div>
+                        <div class="activity-content">
+                            <h4>学生提问</h4>
+                            <p>王同学关于期末项目的疑问</p>
+                            <span class="activity-time">4小时前</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">✅</div>
+                        <div class="activity-content">
+                            <h4>作业批改完成</h4>
+                            <p>已完成"数据结构"作业批改</p>
+                            <span class="activity-time">昨天</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 登录模态框 -->
+    <div class="login-modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>登录教学辅助系统</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="login-form">
+                    <div class="form-group">
+                        <label>邮箱</label>
+                        <input type="email" placeholder="请输入CityU邮箱" required>
+                    </div>
+                    <div class="form-group">
+                        <label>密码</label>
+                        <input type="password" placeholder="请输入密码" required>
+                    </div>
+                    <button type="submit" class="login-btn">登录</button>
+                </form>
+                <div class="login-options">
+                    <a href="#">忘记密码？</a>
+                    <a href="#">新教师注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
