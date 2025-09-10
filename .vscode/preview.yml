@@ -1,54 +1,7 @@
-# 开发预览配置
-version: 1.0
-
-server:
-  port: 3000
-  host: localhost
-  open: true
-  cors: true
-
-build:
-  source: .
-  output: dist
-  clean: true
-
-html:
-  pages:
-    - index.html
-    - auth.html
-    - start.html
-    - pages/ai-assistant.html
-    - pages/assignments.html
-    - pages/courses.html
-    - pages/students.html
-
-assets:
-  include:
-    - assets/**
-    - js/**
-    - styles/**
-
-watch:
-  files:
-    - *.html
-    - js/**/*.js
-    - styles/**/*.css
-    - assets/**/*
-  ignore:
-    - node_modules/
-    - dist/
-
-preview:
-  browser: default
-  reload: true
-  notify: true
-
-# 环境配置
-environments:
-  development:
-    api_url: http://localhost:3000/api
-    debug: true
-    
-  production:
-    api_url: https://api.example.com
-    debug: false
+autoOpen: true
+apps:
+  - port:  
+    run: python -m http.server  
+    root: ./
+    name: CityU Teaching Assistant
+    autoPreview: true
